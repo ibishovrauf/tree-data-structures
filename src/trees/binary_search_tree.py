@@ -22,11 +22,14 @@ class BinarySearchTree:
                     current_node.right = value
                     break
                 current_node = current_node.right
-            else:
+            elif current_node > value:
                 if current_node.left is None:
                     current_node.left = value
                     break
                 current_node = current_node.left
+            else:
+                print(f"The value {value} already exsists in Tree")
+                break
 
     def search(self, value: BSTreeNode | int) -> Optional[BSTreeNode]:
         if not isinstance(value, BSTreeNode):
