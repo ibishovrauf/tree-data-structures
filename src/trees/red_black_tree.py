@@ -1,6 +1,6 @@
 from typing import Any, Optional
 
-from Nodes.bstree_node import BSTreeNode
+from src.nodes import BSTreeNode
 
 
 class RedBlackTree:

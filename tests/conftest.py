@@ -1,5 +1,5 @@
 import pytest
-from src.trees.binary_search_tree import BinarySearchTree
+from src import BinarySearchTree
 
 @pytest.fixture
 def empty_bst():

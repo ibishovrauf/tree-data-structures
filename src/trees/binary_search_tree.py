@@ -1,5 +1,5 @@
 from typing import Any, Optional
-from src.nodes.bstree_node import BSTreeNode
+from src.nodes import BSTreeNode
 
 
 class BinarySearchTree:

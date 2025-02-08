@@ -1,27 +1,3 @@
-"""
-This module implements a simple tree data structure using the Node class.
-
-The Node class encapsulates a value and a collection of child nodes, allowing for the creation
-of hierarchical structures. Each node stores its value and maintains a dictionary of its child
-nodes, which can be accessed via a property that returns a copy to prevent direct modification.
-The class provides methods to add, remove, and retrieve child nodes, and supports comparison
-operations based on the integer conversion of node values (assuming the values can be converted
-to integers).
-
-Key Features:
-    - Encapsulation of a value and a dictionary of child nodes.
-    - Read-only properties for node value and children.
-    - Methods to add, remove, and access child nodes.
-    - Comparison operators (__eq__ and __lt__) for node instances.
-    - Informative string representations (__str__ and __repr__) for easy debugging and display.
-
-Usage Example:
-    >>> root = Node(1)
-    >>> child = Node(2)
-    >>> root.add_child("child1", child)
-    >>> print(root)
-    Node(1) with 1 children
-"""
 from typing import Any, Dict
 from functools import total_ordering
 
@@ -75,14 +51,3 @@ class Node:
     def __repr__(self) -> str:
         childs_str = ", ".join(f"{key}: {value}" for key, value in self._childs.items())
         return f"Node(value={self._value}, childs={childs_str})"
-
-
-if __name__ == "__main__":
-    left_child = Node(1, {})
-    left_child = Node(3, {"left": left_child})
-    right_child = Node(7, {})
-    parent = Node(5, {"left": left_child, "right": right_child})
-
-    print(str(parent))   # Output: Node(5) with children {'left': 3, 'right': 7}
-    print(repr(parent))  # Output: Node(value=5, childs={'left': 3, 'right': 7})
-    parent.get_children()

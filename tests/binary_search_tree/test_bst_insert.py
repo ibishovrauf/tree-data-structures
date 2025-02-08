@@ -1,4 +1,4 @@
-from src.nodes.bstree_node import BSTreeNode
+from src import BSTreeNode
 
 
 def test_insert_root(empty_bst):

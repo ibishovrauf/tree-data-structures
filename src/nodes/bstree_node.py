@@ -48,11 +48,3 @@ class BSTreeNode(BaseNode):
     def __repr__(self) -> str:
         return f"BSTNode({self.value}, left={self.left}, right={self.right})"
     
-
-if __name__ == "__main__":
-    mnode = BSTreeNode(1)
-    mnode1 = BSTreeNode(3)
-    mnode3 = BSTreeNode(2, left=mnode)
-    parent = BSTreeNode(10, left=mnode3, right=mnode1)
-    print(parent)
-    print(repr(parent))

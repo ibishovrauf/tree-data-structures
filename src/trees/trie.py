@@ -1,6 +1,6 @@
 from typing import Any, Optional
 
-from Nodes.trie_node import TrieNode
+from src.nodes import TrieNode
 
 
 class Trie:

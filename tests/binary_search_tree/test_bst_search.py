@@ -1,4 +1,4 @@
-from src.nodes.bstree_node import BSTreeNode
+from src import BSTreeNode
 
 
 def test_search_empty(empty_bst):
