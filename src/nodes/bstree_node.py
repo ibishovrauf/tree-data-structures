@@ -72,5 +72,5 @@ class BSTreeNode(BaseNode):
         return f"BSTNode({self.value})"
 
     def __repr__(self) -> str:
-        return f"BSTNode({self.value}, left={self.left}, right={self.right})"
+        return f"BSTNode({self.value}, left={repr(self.left)}, right={repr(self.right)})"
     

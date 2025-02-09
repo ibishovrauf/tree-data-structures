@@ -1,3 +1,5 @@
+from copy import deepcopy
+import threading
 from typing import Any, Optional
 from src.nodes import BSTreeNode
 
@@ -6,25 +8,28 @@ class BinarySearchTree:
 
     def __init__(self):
         self._root: Optional[BSTreeNode] = None
-
+        self._lock = threading.Lock()
     def insert(self, value: BSTreeNode | int) -> None:
         if not isinstance(value, BSTreeNode):
             value: BSTreeNode = BSTreeNode(value)
 
         if not self.root:
-            self._root = value
+            if self._lock:
+                self._root = value
             return
 
         current_node = self.root
         while True:
             if current_node < value:
                 if current_node.right is None:
-                    current_node.right = value
+                    if self._lock:
+                        current_node.right = value
                     break
                 current_node = current_node.right
             elif current_node > value:
                 if current_node.left is None:
-                    current_node.left = value
+                    if self._lock:
+                        current_node.left = value
                     break
                 current_node = current_node.left
             else:
@@ -69,16 +74,20 @@ class BinarySearchTree:
             del parent.right
         elif current_node.right:
             curr = current_node.right
+
             if curr.is_leaf:
                 current_node.value = curr.value
                 del current_node.right
                 return
+
             while not curr.left.is_leaf:
                 curr = curr.left
+
             current_node.value = curr.left.value
             del curr.left
         else:
             curr = current_node.left
+
             if curr.is_leaf:
                 current_node.value = curr.value
                 del current_node.left
@@ -100,3 +109,10 @@ class BinarySearchTree:
 
     def __repr__(self) -> str:
         return repr(self.root)
+
+    def get_snapshot(self) -> Optional[BSTreeNode]:
+        """
+        Return a deep copy of the current tree root.
+        """
+        with self._lock:
+            return deepcopy(self.root)
