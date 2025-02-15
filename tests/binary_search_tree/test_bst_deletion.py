@@ -3,6 +3,7 @@ def test_delete_leaf(populated_bst):
     populated_bst.delete(2)
     assert populated_bst.root.left.left is None
 
+
 def test_delete_with_one_child(populated_bst):
     """Test deleting node with one child"""
     populated_bst.delete(3)

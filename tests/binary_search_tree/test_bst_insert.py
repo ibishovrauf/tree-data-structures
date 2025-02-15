@@ -8,6 +8,7 @@ def test_insert_root(empty_bst):
     assert empty_bst.root.left is None
     assert empty_bst.root.right is None
 
+
 def test_insert_multiple(empty_bst):
     """Test inserting multiple values in correct positions"""
     values = [5, 3, 7, 2, 4, 6, 8]
@@ -32,9 +33,9 @@ def test_insert_duplicate(empty_bst):
     """Test inserting duplicate values"""
     empty_bst.insert(5)
     empty_bst.insert(5)
-    print(repr(empty_bst))
     assert empty_bst.root.left == None
     assert empty_bst.root.right == None
+
 
 def test_insert_node_object(empty_bst):
     """Test inserting BSTreeNode objects directly"""
