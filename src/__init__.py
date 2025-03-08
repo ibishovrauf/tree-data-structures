@@ -1,4 +1,4 @@
-from .nodes import BSTreeNode, TrieNode, BTreeNode, RedBlackNode
+from .nodes import BSTreeNode, TrieNode, BTreeNode, RedBlackNode, AVLNode
 from .trees import BinarySearchTree, Trie, RedBlackTree
 from .visualization import visualization_worker
 
@@ -15,6 +15,7 @@ __all__ = [
     'TrieNode',
     'BTreeNode',
     'RedBlackNode',
+    'AVLNode',
     'BinarySearchTree',
     'Trie',
     'RedBlackTree',

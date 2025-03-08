@@ -16,3 +16,6 @@ class AVLNode(BSTreeNode):
         if not isinstance(new_height, int):
             raise ValueError("The height must be integer")
         self._height = new_height
+
+    def __repr__(self) -> str:
+        return f"BSTNode({self.value}, left={repr(self.left)}, right={repr(self.right)}), height={self.height}"
