@@ -13,3 +13,10 @@ def test_is_leaf_with_children(populated_bst):
     """Test is_leaf on nodes with children"""
     assert not populated_bst.root.is_leaf
     assert populated_bst.root.left.left.is_leaf
+
+
+def test_parent(populated_bst):
+    """Test is_leaf on tree with single node"""
+
+    assert populated_bst.root.left.parent.value == populated_bst.root.value
+    assert populated_bst.root.right.left.parent.value == populated_bst.root.right.value
