@@ -61,3 +61,12 @@ def populated_avl_tree_2():
     for value in values:
         tree.insert(value)
     return tree
+
+
+@pytest.fixture
+def populated_avl_tree_3():
+    tree = AVLTree()
+    values = [4, 2, 1, 3]
+    for value in values:
+        tree.insert(value)
+    return tree

@@ -74,12 +74,21 @@ class AVLTree(BinarySearchTree):
             node.right.right.parent = node
         node.right = node.right.right
 
+    def _right_rotate(self, node: AVLNode | int) -> None:
+        node_copy = AVLNode(node.value)
+        if node.right:
+            node_copy.right = node.right
+            node.right.parent = node_copy
+        
+        node.value = node.left.value
 
-if __name__ == "__main__":
-    tree = AVLTree()
-    tree.insert(1)
-    tree.insert(0)
-    tree.insert(3)
-    tree.insert(2)
-    tree.insert(10)
-    print(tree.root.height)
+        node.right = node_copy
+        node_copy.parent = node
+
+        node_copy.left = node.left.right
+        if node.left.right:
+            node.left.right.parent = node_copy
+    
+        if node.left.left:
+            node.left.left.parent = node
+        node.left = node.left.left
