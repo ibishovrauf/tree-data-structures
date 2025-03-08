@@ -5,5 +5,7 @@ from .conftest import (
     populated_bst,
     populated_bst_2,
     empty_trie,
-    populated_trie
+    populated_trie,
+    empty_avl_tree,
+    populated_avl_tree,
 )

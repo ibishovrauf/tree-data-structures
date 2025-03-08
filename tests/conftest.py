@@ -1,5 +1,5 @@
 import pytest
-from src import BinarySearchTree, Trie
+from src import BinarySearchTree, Trie, AVLTree
 
 
 @pytest.fixture
@@ -38,3 +38,26 @@ def populated_trie():
     for word in words:
         trie.insert(word)
     return trie
+
+
+@pytest.fixture
+def empty_avl_tree():
+    return AVLTree()
+
+
+@pytest.fixture
+def populated_avl_tree():
+    tree = AVLTree()
+    values = [1, 3, 4, 2]
+    for value in values:
+        tree.insert(value)
+    return tree
+
+
+@pytest.fixture
+def populated_avl_tree_2():
+    tree = AVLTree()
+    values = [1, 3, 4]
+    for value in values:
+        tree.insert(value)
+    return tree
