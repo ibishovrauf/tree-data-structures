@@ -9,6 +9,7 @@ class BinarySearchTree:
     def __init__(self):
         self._root: Optional[BSTreeNode] = None
         self._lock = threading.Lock()
+    
     def insert(self, value: BSTreeNode | int) -> None:
         if not isinstance(value, BSTreeNode):
             value: BSTreeNode = BSTreeNode(value)
@@ -24,12 +25,14 @@ class BinarySearchTree:
                 if current_node.right is None:
                     if self._lock:
                         current_node.right = value
+                        value.parent = current_node
                     break
                 current_node = current_node.right
             elif current_node > value:
                 if current_node.left is None:
                     if self._lock:
                         current_node.left = value
+                        value.parent = current_node
                     break
                 current_node = current_node.left
             else:
