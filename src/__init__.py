@@ -1,5 +1,5 @@
 from .nodes import BSTreeNode, TrieNode, BTreeNode, RedBlackNode, AVLNode
-from .trees import BinarySearchTree, Trie, RedBlackTree
+from .trees import BinarySearchTree, Trie, RedBlackTree, AVLTree
 from .visualization import visualization_worker
 
 # Version information
@@ -19,6 +19,7 @@ __all__ = [
     'BinarySearchTree',
     'Trie',
     'RedBlackTree',
+    'AVLTree',
 ]
 
 # Optional: Package-level configuration
