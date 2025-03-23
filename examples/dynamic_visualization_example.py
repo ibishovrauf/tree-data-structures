@@ -1,4 +1,3 @@
-import queue
 import random
 import threading
 import time
@@ -7,7 +6,6 @@ from src import BinarySearchTree, visualization_worker
 
 
 def insertion_worker(tree: BinarySearchTree,
-                     q: queue.Queue,
                      interval: float = 0.5) -> None:
     while True:
         value = random.randint(0, 10)
