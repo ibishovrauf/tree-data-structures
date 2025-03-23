@@ -1,6 +1,6 @@
 from .nodes import BSTreeNode, TrieNode, BTreeNode, RedBlackNode, AVLNode
 from .trees import BinarySearchTree, Trie, RedBlackTree, AVLTree
-from .visualization import visualization_worker
+from .visualization import visualization_worker, read_values_from_file
 
 # Version information
 __version__ = '1.0.0'
