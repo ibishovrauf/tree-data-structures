@@ -41,7 +41,7 @@ def populated_trie():
 
 
 @pytest.fixture
-def empty_avl_tree():
+def empty_avl():
     return AVLTree()
 
 
@@ -70,3 +70,13 @@ def populated_avl_tree_3():
     for value in values:
         tree.insert(value)
     return tree
+
+
+@pytest.fixture
+def balanced_avl():
+    """Create a balanced AVL tree for testing properties"""
+    avl = AVLTree()
+    values = [10, 5, 15, 3, 7, 12, 17]
+    for value in values:
+        avl.insert(value)
+    return avl
