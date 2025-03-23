@@ -62,7 +62,6 @@ class BinarySearchTree:
             if not current_node:
                 return None
             elif current_node == value:
-
                 break
             elif current_node < value:
                 parent = current_node
@@ -71,10 +70,13 @@ class BinarySearchTree:
                 parent = current_node
                 current_node = current_node.left
         if current_node.is_leaf:
-            if parent.left == value:
-                del parent.left
+            if not current_node.parent:
+                self.root = None
                 return
-            del parent.right
+            elif current_node.parent.left == value:
+                del current_node.parent.left
+                return
+            del current_node.parent.right
         elif current_node.right:
             curr = current_node.right
 
@@ -83,11 +85,13 @@ class BinarySearchTree:
                 del current_node.right
                 return
 
-            while not curr.left.is_leaf:
+            while curr.left:
                 curr = curr.left
-
-            current_node.value = curr.left.value
-            del curr.left
+            current_node.value = curr.value
+            if not curr.is_leaf:
+                curr.parent.right = curr.right
+            else:
+                curr.parent.left = None
         else:
             curr = current_node.left
 
@@ -95,14 +99,21 @@ class BinarySearchTree:
                 current_node.value = curr.value
                 del current_node.left
                 return
-            while not curr.right.is_leaf:
+            while curr.right:
                 curr = curr.right
-            current_node.value = curr.right.value
-            del curr.right
+            current_node.value = curr.value
+            if not curr.is_leaf:
+                curr.parent.left = curr.left
+            else:
+                curr.parent.right = None
 
     @property
     def root(self) -> Optional[BSTreeNode]:
         return self._root
+
+    @root.setter
+    def root(self, node) -> None:
+        self._root = node
 
     def __contains__(self, value):
         return self.search(value=value) != None
