@@ -32,20 +32,14 @@ class BSTreeNode(BaseNode):
 
     @left.setter
     def left(self, new_left: "BSTreeNode"):
-        # if not isinstance(new_left, BSTreeNode):
-        #     raise ValueError("The leaf node must be BSTreeNode class")
         self._left = new_left
 
     @right.setter
     def right(self, new_right: "BSTreeNode"):
-        # if not isinstance(new_right, BSTreeNode):
-        #     raise ValueError("The leaf node must be BSTreeNode class")
         self._right = new_right
 
     @parent.setter
     def parent(self, new_parent: "BSTreeNode"):
-        # if not isinstance(new_parent, BSTreeNode):
-        #     raise ValueError("The leaf node must be BSTreeNode class")
         self._parent = new_parent
 
     @left.deleter
